@@ -1,0 +1,34 @@
+﻿<Window x:Class="CorpISTask1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ignore="http://www.ignore.com"
+        mc:Ignorable="d ignore"
+        Height="300"
+        Width="500"
+        Title="MVVM Light Application"
+        DataContext="{Binding Main, Source={StaticResource Locator}}">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <ListBox ItemsSource="{Binding Customers}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Top">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <DockPanel>
+                        <Button DockPanel.Dock="Right" Content="Положить 50 руб." Command="{Binding AddMoneyCommand}" CommandParameter="50" Margin="5"></Button>
+                        <Button DockPanel.Dock="Right" Content="Снять 50 руб." Command="{Binding TakeMoneyCommand}" CommandParameter="50" Margin="5"></Button>
+                        <TextBox DockPanel.Dock="Right" Text="{Binding Balance, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="50" Margin="5"></TextBox>
+                        <TextBox DockPanel.Dock="Left" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5"></TextBox>
+                    </DockPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>
