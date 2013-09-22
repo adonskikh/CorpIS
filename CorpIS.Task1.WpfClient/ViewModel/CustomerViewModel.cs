@@ -1,9 +1,10 @@
-﻿using CorpISTask1.Model;
+﻿using CorpIS.Task1.Lib.Messages;
+using CorpIS.Task1.Lib.Model;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-using Microsoft.Practices.ServiceLocation;
+using GalaSoft.MvvmLight.Ioc;
 
-namespace CorpISTask1.ViewModel
+namespace CorpIS.Task1.WpfClient.ViewModel
 {
     /// <summary>
     /// This class contains properties that a View can data bind to.
@@ -13,25 +14,33 @@ namespace CorpISTask1.ViewModel
     /// </summary>
     public class CustomerViewModel : ViewModelBase
     {
-        private readonly CUSTOMER _customer;
+        private readonly Customer _customer;
+        private readonly TcpSocketManager _socketManager;
+
         /// <summary>
         /// Initializes a new instance of the CustomerViewModel class.
         /// </summary>
-        public CustomerViewModel(CUSTOMER customer)
+        public CustomerViewModel(Customer customer)
         {
             _customer = customer;
+            _socketManager = SimpleIoc.Default.GetInstance<TcpSocketManager>();
             AddMoneyCommand = new RelayCommand<float>(AddMoney);
             TakeMoneyCommand = new RelayCommand<float>(TakeMoney);
         }
 
+        public long Id
+        {
+            get { return _customer.Id; }
+        }
+
         public string Name
         {
-            get { return _customer.NAME; }
+            get { return _customer.Name; }
             set
             {
-                if (_customer.NAME != value)
+                if (_customer.Name != value)
                 {
-                    _customer.NAME = value;
+                    _customer.Name = value;
                     RaisePropertyChanged(() => Name);
                 }
             }
@@ -39,12 +48,12 @@ namespace CorpISTask1.ViewModel
 
         public float Balance
         {
-            get { return _customer.BALANCE; }
+            get { return _customer.Balance; }
             set
             {
-                if (_customer.BALANCE != value)
+                if (_customer.Balance != value)
                 {
-                    _customer.BALANCE = value;
+                    _customer.Balance = value;
                     RaisePropertyChanged(() => Balance);
                 }
             }
@@ -55,14 +64,14 @@ namespace CorpISTask1.ViewModel
 
         private void AddMoney(float value)
         {
-            Balance += value;
-            ServiceLocator.Current.GetInstance<IContextManager>().Context.SaveChanges();
+            //Balance += value;
+            _socketManager.SendMessage(new ChangeBalanceRequest() { Difference = 50, CustomerID = _customer.Id});
         }
 
         private void TakeMoney(float value)
         {
-            Balance -= value;
-            ServiceLocator.Current.GetInstance<IContextManager>().Context.SaveChanges();
+            //Balance -= value;
+            _socketManager.SendMessage(new ChangeBalanceRequest() { Difference = -50, CustomerID = _customer.Id });
         }
     }
 }

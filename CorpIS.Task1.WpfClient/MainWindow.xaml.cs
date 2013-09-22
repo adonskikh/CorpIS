@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using CorpISTask1.ViewModel;
+using CorpIS.Task1.WpfClient.ViewModel;
 
-namespace CorpISTask1
+namespace CorpIS.Task1.WpfClient
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -1,10 +1,7 @@
 ﻿using System.Collections.ObjectModel;
-using CorpISTask1.Model;
 using GalaSoft.MvvmLight;
-using System.Linq;
-using Microsoft.Practices.ServiceLocation;
 
-namespace CorpISTask1.ViewModel
+namespace CorpIS.Task1.WpfClient.ViewModel
 {
     /// <summary>
     /// This class contains properties that the main View can data bind to.
@@ -16,17 +13,14 @@ namespace CorpISTask1.ViewModel
     {
         public ObservableCollection<CustomerViewModel> Customers { get; private set; }
 
+        private TcpSocketManager _socketManager;
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
         public MainViewModel()
         {
-            var context = ServiceLocator.Current.GetInstance<IContextManager>().Context;
-            Customers = new ObservableCollection<CustomerViewModel>();;
-            foreach (var customer in context.CUSTOMERs)
-            {
-                Customers.Add(new CustomerViewModel(customer));
-            }
+            Customers = new ObservableCollection<CustomerViewModel>();
         }
 
         ////public override void Cleanup()

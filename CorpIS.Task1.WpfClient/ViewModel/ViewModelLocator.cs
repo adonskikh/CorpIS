@@ -9,12 +9,10 @@
   DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
 */
 
-using CorpISTask1.Model;
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 
-namespace CorpISTask1.ViewModel
+namespace CorpIS.Task1.WpfClient.ViewModel
 {
     /// <summary>
     /// This class contains static references to all the view models in the
@@ -35,9 +33,6 @@ namespace CorpISTask1.ViewModel
             //else
             //{
             //}
-            SimpleIoc.Default.Register<IContextManager, ContextManager>();
-
-            SimpleIoc.Default.Register<MainViewModel>();
         }
 
         /// <summary>
@@ -59,7 +54,6 @@ namespace CorpISTask1.ViewModel
         /// </summary>
         public static void Cleanup()
         {
-            ServiceLocator.Current.GetInstance<IContextManager>().Dispose();
         }
     }
 }

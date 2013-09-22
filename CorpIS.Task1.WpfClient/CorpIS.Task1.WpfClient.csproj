@@ -8,7 +8,7 @@
     <ProjectGuid>{545CE9ED-6DCA-4C3F-BD05-9B6B9E0E0427}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CorpISTask1</RootNamespace>
+    <RootNamespace>CorpIS.Task1.WpfClient</RootNamespace>
     <AssemblyName>CorpISTask1</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
@@ -53,28 +53,27 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="GalaSoft.MvvmLight.WPF4">
+    <Reference Include="GalaSoft.MvvmLight.Extras.WPF4, Version=4.1.27.22692, Culture=neutral, PublicKeyToken=1673db7d5906b0ad, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\Laurent Bugnion (GalaSoft)\Mvvm Light Toolkit\Binaries\WPF4\GalaSoft.MvvmLight.WPF4.dll</HintPath>
+      <HintPath>..\packages\MvvmLightLibs.4.1.27.1\lib\net40\GalaSoft.MvvmLight.Extras.WPF4.dll</HintPath>
     </Reference>
-    <Reference Include="GalaSoft.MvvmLight.Extras.WPF4">
+    <Reference Include="GalaSoft.MvvmLight.WPF4, Version=4.1.27.22692, Culture=neutral, PublicKeyToken=63eb5c012e0b3c1c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\Laurent Bugnion (GalaSoft)\Mvvm Light Toolkit\Binaries\WPF4\GalaSoft.MvvmLight.Extras.WPF4.dll</HintPath>
+      <HintPath>..\packages\MvvmLightLibs.4.1.27.1\lib\net40\GalaSoft.MvvmLight.WPF4.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.ServiceLocation">
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\Laurent Bugnion (GalaSoft)\Mvvm Light Toolkit\Binaries\WPF4\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
-    <Reference Include="System.Windows.Interactivity">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\Laurent Bugnion (GalaSoft)\Mvvm Light Toolkit\Binaries\WPF4\System.Windows.Interactivity.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.4.1.27.1\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -92,26 +91,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\ContextManager.cs" />
-    <Compile Include="Model\CorpISModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CorpISModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\CorpISModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CorpISModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\CorpISModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CorpISModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\CUSTOMER.cs">
-      <DependentUpon>CorpISModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\IContextManager.cs" />
+    <Compile Include="MessageHandler.cs" />
+    <Compile Include="TcpSocketManager.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -146,23 +127,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\CorpISModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CorpISModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="App.Config" />
-    <None Include="Model\CorpISModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CorpISModel.edmx</DependentUpon>
-      <LastGenOutput>CorpISModel.Context.cs</LastGenOutput>
-    </None>
-    <None Include="Model\CorpISModel.edmx.diagram">
-      <DependentUpon>CorpISModel.edmx</DependentUpon>
-    </None>
-    <None Include="Model\CorpISModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CorpISModel.edmx</DependentUpon>
-      <LastGenOutput>CorpISModel.cs</LastGenOutput>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -199,12 +165,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CorpISDatabase.sdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <ProjectReference Include="..\CorpIS.Task1.Lib\CorpIS.Task1.Lib.csproj">
+      <Project>{0AF4A2CB-9F29-4754-9663-C75ED34F899C}</Project>
+      <Name>CorpIS.Task1.Lib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
