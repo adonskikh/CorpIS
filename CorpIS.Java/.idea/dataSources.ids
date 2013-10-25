@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Data Source" product="MySQL" version="5.1.70-community-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.26 ( Revision: ${bzr.revision-id} )" uuid="eb1ebe9f-4175-446d-89cd-55d269a4d2e4">
+    <extra-name-characters>#@</extra-name-characters>
+    <identifier-quote-string>`</identifier-quote-string>
+    <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+    <jdbc-url>jdbc:mysql://localhost:33060/CorpIS</jdbc-url>
+    <user-name>root</user-name>
+    <schema-pattern>CorpIS.*</schema-pattern>
+    <default-schemas>CorpIS.*</default-schemas>
+    <libraries>
+      <library>
+        <url>jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.26-bin.jar!/</url>
+      </library>
+      <library>
+        <url>file://$PROJECT_DIR$/lib/mysql-connector-license.txt</url>
+      </library>
+    </libraries>
+    <schema name="" catalog="CorpIS" />
+    <table name="CUSTOMER" schema="" catalog="CorpIS" type="TABLE">
+      <column name="Id" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="Name" sqlType="VARCHAR" length="256" precision="0" nullable="false" jdbcType="12" />
+      <column name="Balance" sqlType="FLOAT" length="12" precision="0" nullable="false" jdbcType="7" />
+      <primary-key name="PRIMARY" columns="Id" />
+    </table>
+  </data-source>
+</component>

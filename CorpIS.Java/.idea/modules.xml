@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CorpIS.Java.iml" filepath="$PROJECT_DIR$/CorpIS.Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CorpIS.Java.Client/CorpIS.Java.Client.iml" filepath="$PROJECT_DIR$/CorpIS.Java.Client/CorpIS.Java.Client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CorpIS.Java.Lib/CorpIS.Java.Lib.iml" filepath="$PROJECT_DIR$/CorpIS.Java.Lib/CorpIS.Java.Lib.iml" />
+    </modules>
+  </component>
+</project>
+
