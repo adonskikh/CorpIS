@@ -18,11 +18,11 @@ import java.util.List;
  * Time: 23:49
  * To change this template use File | Settings | File Templates.
  */
-public class CorpIsRmiService implements CorpIsRmiInterface {
+public class CorpRepository {
 
     private EntityManager _entityManager;
 
-    public CorpIsRmiService()
+    public CorpRepository()
     {
         PersistenceProvider provider = new HibernatePersistence();
         EntityManagerFactory entityManagerFactory = provider.createEntityManagerFactory("NewPersistenceUnit", new HashMap());
@@ -44,12 +44,10 @@ public class CorpIsRmiService implements CorpIsRmiInterface {
         return string;
     }
 
-    @Override
     public Customer getCustomer(int id) throws RemoteException {
         return _entityManager.find(Customer.class, id);
     }
 
-    @Override
     public float changeBalance(int id, float diff) throws RemoteException {
         Customer customer =  _entityManager.find(Customer.class, id);
         if(customer != null)
@@ -64,7 +62,6 @@ public class CorpIsRmiService implements CorpIsRmiInterface {
         return 0;
     }
 
-    @Override
     public List<Customer> getAllCustomers() throws RemoteException {
         return _entityManager.createQuery("from Customer").getResultList();
     }

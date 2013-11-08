@@ -1,0 +1,12 @@
+ module CorbaServiceModule
+ {	 
+	 typedef sequence<long> customerIds;
+	 
+     interface CorbaService
+     {
+        float changeBalance(in long id, in float diff);
+        string getName(in long id);
+        float getBalance(in long id);
+        customerIds getAllCustomerIds();
+     };
+ };
