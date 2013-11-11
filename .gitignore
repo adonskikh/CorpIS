@@ -111,3 +111,11 @@ UpgradeLog*.XML
 /CorpIS.Java.Lib/dist/
 /CorpIS.Java.Lib/build/
 /CorpIS.Java.Server/build/
+/NewsApp/nbproject/private/
+/NewsApp/NewsApp-war/nbproject/private/
+/NewsApp/NewsApp-ejb/nbproject/private/
+/NewsApp/NewsApp-ejb/build/
+/NewsApp/NewsApp-war/build/
+/NewsApp/NewsApp-ejb/dist/
+/NewsApp/NewsApp-war/dist/
+/NewsApp/build/
